@@ -1,3 +1,6 @@
+# Distributed folder
+dist
+
 # Logs
 logs
 *.log

@@ -1,0 +1,31 @@
+{
+  "name": "ber-parser",
+  "version": "1.0.0",
+  "description": "A simple ASN1 BER parser",
+  "main": "dist/index.js",
+  "files": ["dist/**/*"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitwkit/ber-parser.git"
+  },
+  "keywords": [
+    "asn1",
+    "ber",
+    "tlv",
+    "parser"
+  ],
+  "author": "bitwkit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitwkit/ber-parser/issues"
+  },
+  "homepage": "https://github.com/bitwkit/ber-parser#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

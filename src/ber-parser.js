@@ -1,6 +1,6 @@
 
-// this module implements parsing of data coded according to ASN1 Basic Encoding Rules (BER)
-// numbers in parentheses refer to paragraphs of from ITU-T X.690 Recommendations
+// this module implements parsing of data encoded according to ASN1 Basic Encoding Rules (BER)
+// numbers in parentheses refer to paragraphs of ITU-T X.690 Recommendations
 
 const CLASS_TYPES = require('./class-types.js');
 
@@ -75,7 +75,7 @@ function readValue(buffer, startPos, tagObj, lengthObj, parseValues) {
     return res;
 };
 
-function readTlv(buffer, pos, parseValues = true) {
+function readTlv(buffer, pos = 0, parseValues = true) {
     const tag = readTag(buffer, pos);
     const length = readLength(buffer, tag.nextPos);
     const value = readValue(buffer, length.nextPos, tag, length, parseValues);
