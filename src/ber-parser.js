@@ -60,8 +60,9 @@ function readValue(buffer, startPos, tagObj, lengthObj, parseValues) {
         };
         if (parseValues &&
             CLASS_TYPES[tagObj.class] &&
-            CLASS_TYPES[tagObj.class][tagObj.number] &&
-            CLASS_TYPES[tagObj.class][tagObj.number].parser) res = CLASS_TYPES[tagObj.class][tagObj.number](res);
+            CLASS_TYPES[tagObj.class].types &&
+            CLASS_TYPES[tagObj.class].types[tagObj.number] &&
+            CLASS_TYPES[tagObj.class].types[tagObj.number].parser) res = CLASS_TYPES[tagObj.class].types[tagObj.number](res);
     }
     else {
         while (pos < startPos + lengthObj.contentLength) {
@@ -86,7 +87,9 @@ function showTlv(tlv, textOffset = 0) {
     console.log(
         [...Array(textOffset)].reduce( (prev, curr) => prev.concat('   '), ''), // offset spaces
         CLASS_TYPES[tlv.tag.class], ',', // class name
-        CLASS_TYPES[tlv.tag.class][tlv.tag.number] ? CLASS_TYPES[tlv.tag.class][tlv.tag.number] : tlv.tag.number, ',', // type name if the class is universal
+        CLASS_TYPES[tlv.tag.class] &&
+        CLASS_TYPES[tlv.tag.class].types &&
+        CLASS_TYPES[tlv.tag.class].types[tlv.tag.number] ? CLASS_TYPES[tlv.tag.class].types[tlv.tag.number] : tlv.tag.number, ',', // type name if the class is universal
         (tlv.tag.constructed ?
             '[' :
             (typeof tlv.value == 'string') || tlv.length.contentLength <= 20 ?

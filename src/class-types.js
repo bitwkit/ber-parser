@@ -54,11 +54,11 @@ const CLASS_TYPES = {
 
 // adding parsers to some types
 
-CLASS_TYPES[0b00][2].parser = contents => contents[0];
-CLASS_TYPES[0b00][6].parser = contents => [Math.floor(contents[0] / 40), contents[0] % 40, ...contents.slice(1)];
+CLASS_TYPES[0b00].types[2].parser = contents => contents[0];
+CLASS_TYPES[0b00].types[6].parser = contents => [Math.floor(contents[0] / 40), contents[0] % 40, ...contents.slice(1)];
 const charStringParser = contents => String.fromCharCode(...contents);
 
-const UNIVERSAL_TYPES = CLASS_TYPES[0b00];
+const UNIVERSAL_TYPES = CLASS_TYPES[0b00].types;
 Object.getOwnPropertyNames(UNIVERSAL_TYPES).forEach( type => {
     if (UNIVERSAL_TYPES[type].name == "Character string") {
         UNIVERSAL_TYPES[type].parser = charStringParser;
