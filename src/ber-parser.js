@@ -62,7 +62,7 @@ function readValue(buffer, startPos, tagObj, lengthObj, parseValues) {
             CLASS_TYPES[tagObj.class] &&
             CLASS_TYPES[tagObj.class].types &&
             CLASS_TYPES[tagObj.class].types[tagObj.number] &&
-            CLASS_TYPES[tagObj.class].types[tagObj.number].parser) res = CLASS_TYPES[tagObj.class].types[tagObj.number](res);
+            CLASS_TYPES[tagObj.class].types[tagObj.number].parser) res = CLASS_TYPES[tagObj.class].types[tagObj.number].parser(res);
     }
     else {
         while (pos < startPos + lengthObj.contentLength) {
