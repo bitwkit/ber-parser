@@ -65,4 +65,4 @@ Object.getOwnPropertyNames(UNIVERSAL_TYPES).forEach( type => {
     };
 });
 
-exports.default = CLASS_TYPES;
+module.exports = CLASS_TYPES;

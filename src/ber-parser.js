@@ -86,10 +86,10 @@ function readTlv(buffer, pos = 0, parseValues = true) {
 function showTlv(tlv, textOffset = 0) {
     console.log(
         [...Array(textOffset)].reduce( (prev, curr) => prev.concat('   '), ''), // offset spaces
-        CLASS_TYPES[tlv.tag.class], ',', // class name
+        CLASS_TYPES[tlv.tag.class].name, ',', // class name
         CLASS_TYPES[tlv.tag.class] &&
         CLASS_TYPES[tlv.tag.class].types &&
-        CLASS_TYPES[tlv.tag.class].types[tlv.tag.number] ? CLASS_TYPES[tlv.tag.class].types[tlv.tag.number] : tlv.tag.number, ',', // type name if the class is universal
+        CLASS_TYPES[tlv.tag.class].types[tlv.tag.number] ? CLASS_TYPES[tlv.tag.class].types[tlv.tag.number].name : tlv.tag.number, ',', // type name if the class is universal
         (tlv.tag.constructed ?
             '[' :
             (typeof tlv.value == 'string') || tlv.length.contentLength <= 20 ?
