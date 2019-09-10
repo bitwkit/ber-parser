@@ -104,7 +104,7 @@ function showTlv(tlv, textOffset = 0) {
 };
 
 function toJson(tlv) {
-    return tlv.constructed ? tlv.value.map( elem => toJson(elem) ) : tlv.value;
+    return tlv.tag.constructed ? tlv.value.map( elem => toJson(elem) ) : tlv.value;
 };
 
 exports.readTlv = readTlv;
